@@ -8,4 +8,5 @@ module.exports = (robot) ->
   robot.respond /relay(?: to)? (#[^ ]+) +(.*)/i, (msg) ->
     channel = msg.match[1]
     text = msg.match[2]
-    msg.send "/msg #{channel} #{text}"
+    msg.envelope.room = channel
+    msg.send text
