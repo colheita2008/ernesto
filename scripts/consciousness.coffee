@@ -14,3 +14,6 @@ module.exports = (robot) ->
     text = msg.match[2]
     msg.envelope.room = channel
     msg.send text
+
+  robot.respond /(?:como|qual) +(?:é|era) +.* *site dos (?:smiley?s|emojis)/i, (msg) ->
+    msg.send "This one? http://www.emoji-cheat-sheet.com/"
