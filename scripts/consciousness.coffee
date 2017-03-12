@@ -12,8 +12,8 @@ module.exports = (robot) ->
   robot.respond /relay(?: to)? (#[^ ]+) +(.*)/i, (msg) ->
     channel = msg.match[1]
     text = msg.match[2]
-    msg.envelope.room = channel
-    msg.send text
+    msg.send "Message sent to channel " + channel + "\n  «"+text + "»"
+    robot.send {room: channel}, text
 
   robot.respond /(?:como|qual) +(?:é|era) +.* *site dos (?:smiley?s|emojis)/i, (msg) ->
     msg.send "This one? http://www.emoji-cheat-sheet.com/"
