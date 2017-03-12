@@ -9,7 +9,7 @@ module.exports = (robot) ->
   robot.hear /mek ?é das cenas\??/i, (msg) ->
     msg.send "ta tudo"
 
-  robot.respond /relay(?: to)? (#[^ ]+) +(.*)/i, (msg) ->
+  robot.respond /relay(?: to)? ([^ ]+) +(.*)/i, (msg) ->
     channel = msg.match[1]
     text = msg.match[2]
     msg.send "Message sent to channel " + channel + "\n  «"+text + "»"
